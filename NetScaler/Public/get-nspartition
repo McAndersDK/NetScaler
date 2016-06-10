@@ -1,0 +1,31 @@
+function get-NSpartition {
+  <#
+  .SYNOPSIS
+    Get partition objects.
+  
+  .DESCRIPTION
+    Get partition objects.
+  
+  .EXAMPLE
+    get-NSpartition
+      Get all partition objects.
+  .PARAMETER Session
+      The NetScaler session object.
+  #>
+  [cmdletbinding()]
+  param(
+      $Session = $script:session,
+  )
+  
+  begin {
+      _AssertSessionActive
+      $response = @()
+  }
+  
+  $response = _InvokeNSRestApi -Session $Session -Method Get -Type nspartition -Action Get 
+  if ($response.errorcode -ne 0) { throw $response } 
+    if ($Response.psobject.properties.name -contains 'nspartition') { 
+      $response.nspartition 
+    }
+  }
+}
