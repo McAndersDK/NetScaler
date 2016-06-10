@@ -30,7 +30,7 @@ function Add-NSPartition {
         The minimum bandwidth limit for the partition.
 
     .PARAMETER Passthru 
-        Return the load balancer server object. 
+        Return the partition object. 
 
     #>
     [cmdletbinding(SupportsShouldProcess = $true, ConfirmImpact='Low')]
