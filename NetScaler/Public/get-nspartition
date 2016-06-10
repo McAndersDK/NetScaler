@@ -8,9 +8,12 @@ function get-NSpartition {
   
   .EXAMPLE
     get-NSpartition
-      Get all partition objects.
+    
+    Get all partition objects.
+    
   .PARAMETER Session
       The NetScaler session object.
+      
   #>
   [cmdletbinding()]
   param(
