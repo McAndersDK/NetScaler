@@ -1,4 +1,3 @@
-
 function Set-NSActivePartition {
     <#
     .SYNOPSIS
@@ -28,7 +27,7 @@ function Set-NSActivePartition {
         $Session = $script:session,
 
         [parameter(Mandatory = $true, ValueFromPipeline = $true, ValueFromPipelineByPropertyName)]
-        [string]$partitionName = (Read-Host -Prompt 'Partition Name'),
+        [string]$partitionName = (Read-Host -Prompt 'Partition Name')
     )
 
     begin {
@@ -39,3 +38,4 @@ function Set-NSActivePartition {
       $response = _InvokeNSRestApi -Session $Session -Method POST -Type nspartition -Payload @{partitionname=$PartitionName} -Action switch
       if ($response.errorcode -ne 0) { throw $response }
     }
+}
