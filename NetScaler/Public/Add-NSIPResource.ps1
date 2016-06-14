@@ -72,7 +72,6 @@ function Add-NSIPResource {
     #>
     [cmdletbinding(SupportsShouldProcess = $true, ConfirmImpact='Low')]
     param(
-        [parameter(Mandatory)]
         $Session = $script:session,
 
         [parameter(Mandatory)]
