@@ -36,6 +36,8 @@ function Set-NSActivePartition {
 
     process {
       $response = _InvokeNSRestApi -Session $Session -Method POST -Type nspartition -Payload @{partitionname=$PartitionName} -Action switch
-      if ($response.errorcode -ne 0) { throw $response }
+      if($response) {
+        if ($response.errorcode -ne 0) { throw $response }
+      }
     }
 }
